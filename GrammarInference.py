@@ -48,7 +48,7 @@ with tf.Session() as sess:
     for i in range(10):
         print(generateFormula(0.9).eval())
     print('\n')
-        
+
 #    for i in range(max(N,10)):
 #        print(formulas[i].eval())
 

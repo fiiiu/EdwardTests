@@ -8,18 +8,18 @@ import seaborn as sns
 
 ##Model:
 theta = Beta(1.0, 1.0)
-x = Bernoulli(probs=theta)#, sample_shape=(1,))
+x = Bernoulli(probs=theta)
 
 ##Sampling:
-# with tf.Session() as sess:
-#     for i in range(10):
-#         print(x.eval())
+with tf.Session() as sess:
+    for i in range(10):
+        print(x.eval())
 
 ##Observations:
 data=1
 
 ##Infer:
-qtheta = Beta(tf.Variable(1.0), tf.Variable(1.0))  #Why need tf.Variable here?
+qtheta = Beta(tf.Variable(1.0), tf.Variable(1.0))
 inference = ed.KLqp({theta: qtheta}, {x: data})
 inference.run()
 
